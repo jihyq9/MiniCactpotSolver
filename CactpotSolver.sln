@@ -1,9 +1,9 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CactpotSolver", "CactpotSolver\CactpotSolver.csproj", "{4908D4CA-3FD7-45D2-B184-BF18FED2ED4C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CactpotSolver", "DotNET\CactpotSolver\CactpotSolver.csproj", "{4908D4CA-3FD7-45D2-B184-BF18FED2ED4C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CactpotUI", "CactpotUI\CactpotUI.csproj", "{25B8727D-92AC-4947-B485-124EC68755FF}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CactpotUI", "DotNET\CactpotUI\CactpotUI.csproj", "{25B8727D-92AC-4947-B485-124EC68755FF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
