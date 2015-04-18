@@ -29,6 +29,11 @@ namespace CactpotUI
             try {
                 square = (int)cbo.Tag;
                 val = (int)cbo.SelectedItem;
+                if (_cactpot.ChoicesRemaining == 0 && _cactpot.UnchosenSquares.Contains(square)) {
+                    MessageBox.Show("No choices remaining!");
+                    cbo.SelectedIndex = 0;
+                    return;
+                }
                 success = true;
             } catch (Exception) { }
             // Display the values of choices
@@ -49,8 +54,7 @@ namespace CactpotUI
                 maxLabel.BackColor = Color.LightGreen;
             }
             // Display line values if no choices left
-            int choicesRemaining = _cactpot.ChoicesRemaining;
-            if (choicesRemaining == 0) {
+            if (_cactpot.ChoicesRemaining == 0) {
                 Label maxLabel = lblLine0;
                 double maxVal = 0;
                 var lineVals = _cactpot.LineValues().ToArray();
