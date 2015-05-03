@@ -18,6 +18,7 @@ public class MiniCactpot
         Console.ReadLine();
     }
 
+    #region Variables
     /// <summary>
     /// All acceptable sequences of squares.
     /// 0 1 2
@@ -27,9 +28,19 @@ public class MiniCactpot
     private int[][] _lines = { new int[]{ 0, 1, 2 }, new int[]{ 3, 4, 5 }, new int[]{ 6, 7, 8 }, 
                                new int[]{ 0, 3, 6 }, new int[]{ 1, 4, 7 }, new int[]{ 2, 5, 8 }, 
                                new int[]{ 0, 4, 8 }, new int[]{ 2, 4, 6 } };
+    /// <summary>
+    /// The value of all sums of lines, from 6 to 24.
+    /// </summary>
     private int[] _cactpotValues = { 10000, 36, 720, 360, 80, 252, 108, 72, 54, 180, 72, 180, 119, 36, 306, 1080, 144, 1800, 3600 };
 
+    /// <summary>
+    /// All allowed square values.
+    /// </summary>
     private int[] _possibilities = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    #endregion
+
+    #region Properties
+    private static Dictionary<long, double> ChosenSquareValueStore { get; set; }
 
     public int[] CactpotSquares{get;set;}
 
@@ -80,16 +91,30 @@ public class MiniCactpot
             }
         }
     }
-    
+    #endregion
+
+    #region Constructors
     public MiniCactpot()
     {
-        CactpotSquares = new int[9];
+        this.CactpotSquares = new int[9];
+        if (ChosenSquareValueStore == null) { ChosenSquareValueStore = new Dictionary<long, double>(); }
     }
 
-    public MiniCactpot(MiniCactpot copiedCactpot)
+    public MiniCactpot(MiniCactpot copiedCactpot) : this()
     {
-        this.CactpotSquares = new int[9];
         copiedCactpot.CactpotSquares.CopyTo(this.CactpotSquares, 0);
+    }
+    #endregion
+
+    #region Methods
+    public override int GetHashCode()
+    {
+        int hash = 0;
+        for (int i = CactpotSquares.Length - 1; i >= 0; i--) {
+            hash *= 10;
+            hash += CactpotSquares[i];
+        }
+        return hash;
     }
 
     public void Choose(int squareChosen, int value)
@@ -105,20 +130,22 @@ public class MiniCactpot
         if (CactpotSquares[squareChosen] != 0) {
             return -1;
         }
-
-        // Value of a chosen square is the average of the values of all possible boards that follow that choice
-        double totalNextBoardValue = 0;
-        foreach (int value in RemainingValues) {
-            var newBoard = new MiniCactpot(this);
-            newBoard.Choose(squareChosen, value);
-            totalNextBoardValue += newBoard.BoardValue;
+        long choiceHash = (long)this.GetHashCode() * 10 + squareChosen;
+        if (!ChosenSquareValueStore.ContainsKey(choiceHash)) {
+            // Value of a chosen square is the average of the values of all possible boards that follow that choice
+            double totalNextBoardValue = 0;
+            foreach (int value in RemainingValues) {
+                var newBoard = new MiniCactpot(this);
+                newBoard.Choose(squareChosen, value);
+                totalNextBoardValue += newBoard.BoardValue;
+            }
+            ChosenSquareValueStore.Add(choiceHash, totalNextBoardValue * 1.0 / RemainingValues.Count());
         }
-        return totalNextBoardValue * 1.0 / RemainingValues.Count();
+        return ChosenSquareValueStore[choiceHash];
     }
 
     public IEnumerable<double> LineValues()
     {
-        
         foreach (int[] line in _lines) {
             yield return LineValue(line);
         }
@@ -158,6 +185,7 @@ public class MiniCactpot
     {
         return _cactpotValues[lineTotal - 6];
     }
+    #endregion
 }
 
 public class Helpers
