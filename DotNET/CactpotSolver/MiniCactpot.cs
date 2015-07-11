@@ -64,6 +64,9 @@ public class MiniCactpot
         }
     }
 
+    /// <summary>
+    /// The indices of all squares that are uncovered.
+    /// </summary>
     public IEnumerable<int> UnchosenSquares
     {
         get

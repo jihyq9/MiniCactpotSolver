@@ -8,16 +8,15 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-
 namespace CactpotUI
 {
     public partial class frmCactpotSolver : Form
     {
-        private MiniCactpot _cactpot;
+        private FsCactpot.FsCactpotSolver _cactpot;
         public frmCactpotSolver()
         {
             InitializeComponent();
-            _cactpot = new MiniCactpot();
+            _cactpot = new FsCactpot.FsCactpotSolver();
         }
 
         private void cboSquare_SelectedIndexChanged(object sender, EventArgs e)
@@ -29,7 +28,7 @@ namespace CactpotUI
             try {
                 square = (int)cbo.Tag;
                 val = (int)cbo.SelectedItem;
-                if (_cactpot.ChoicesRemaining == 0 && _cactpot.UnchosenSquares.Contains(square)) {
+                if (_cactpot.ChoicesRemaining == 0 && _cactpot.IsUnchosenSquare(square)) {
                     MessageBox.Show("No choices remaining!");
                     cbo.SelectedIndex = 0;
                     return;
