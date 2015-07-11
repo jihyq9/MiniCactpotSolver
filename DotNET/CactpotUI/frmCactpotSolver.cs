@@ -57,6 +57,7 @@ namespace CactpotUI
                 labels[i].BackColor = SystemColors.Control;
                 var choiceVal = lineVals[i];
                 labels[i].Text = Math.Round(choiceVal).ToString();
+                labels[i].Visible = true;
                 if (choiceVal > maxVal) {
                     maxLabel = labels[i];
                     maxVal = choiceVal;
@@ -74,6 +75,7 @@ namespace CactpotUI
                 labels[i].BackColor = SystemColors.Control;
                 var choiceVal = _cactpot.ChosenSquareValue(i);
                 labels[i].Text = Math.Round(choiceVal).ToString();
+                labels[i].Visible = true;
                 if (choiceVal > maxVal) {
                     maxLabel = labels[i];
                     maxVal = choiceVal;

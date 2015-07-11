@@ -262,6 +262,7 @@
             this.lblVal3.Size = new System.Drawing.Size(21, 13);
             this.lblVal3.TabIndex = 9;
             this.lblVal3.Text = "val";
+            this.lblVal3.Visible = false;
             // 
             // lblVal6
             // 
@@ -271,6 +272,7 @@
             this.lblVal6.Size = new System.Drawing.Size(21, 13);
             this.lblVal6.TabIndex = 10;
             this.lblVal6.Text = "val";
+            this.lblVal6.Visible = false;
             // 
             // lblVal0
             // 
@@ -280,6 +282,7 @@
             this.lblVal0.Size = new System.Drawing.Size(21, 13);
             this.lblVal0.TabIndex = 11;
             this.lblVal0.Text = "val";
+            this.lblVal0.Visible = false;
             // 
             // lblVal1
             // 
@@ -289,6 +292,7 @@
             this.lblVal1.Size = new System.Drawing.Size(21, 13);
             this.lblVal1.TabIndex = 14;
             this.lblVal1.Text = "val";
+            this.lblVal1.Visible = false;
             // 
             // lblVal7
             // 
@@ -298,6 +302,7 @@
             this.lblVal7.Size = new System.Drawing.Size(21, 13);
             this.lblVal7.TabIndex = 13;
             this.lblVal7.Text = "val";
+            this.lblVal7.Visible = false;
             // 
             // lblVal4
             // 
@@ -307,6 +312,7 @@
             this.lblVal4.Size = new System.Drawing.Size(21, 13);
             this.lblVal4.TabIndex = 12;
             this.lblVal4.Text = "val";
+            this.lblVal4.Visible = false;
             // 
             // lblVal2
             // 
@@ -316,6 +322,7 @@
             this.lblVal2.Size = new System.Drawing.Size(21, 13);
             this.lblVal2.TabIndex = 17;
             this.lblVal2.Text = "val";
+            this.lblVal2.Visible = false;
             // 
             // lblVal8
             // 
@@ -325,6 +332,7 @@
             this.lblVal8.Size = new System.Drawing.Size(21, 13);
             this.lblVal8.TabIndex = 16;
             this.lblVal8.Text = "val";
+            this.lblVal8.Visible = false;
             // 
             // lblVal5
             // 
@@ -334,78 +342,95 @@
             this.lblVal5.Size = new System.Drawing.Size(21, 13);
             this.lblVal5.TabIndex = 15;
             this.lblVal5.Text = "val";
+            this.lblVal5.Visible = false;
             // 
             // lblLine3
             // 
             this.lblLine3.AutoSize = true;
+            this.lblLine3.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine3.Location = new System.Drawing.Point(129, 64);
             this.lblLine3.Name = "lblLine3";
-            this.lblLine3.Size = new System.Drawing.Size(33, 13);
+            this.lblLine3.Size = new System.Drawing.Size(35, 15);
             this.lblLine3.TabIndex = 18;
             this.lblLine3.Text = "Line3";
+            this.lblLine3.Visible = false;
             // 
             // lblLine4
             // 
             this.lblLine4.AutoSize = true;
+            this.lblLine4.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine4.Location = new System.Drawing.Point(288, 64);
             this.lblLine4.Name = "lblLine4";
-            this.lblLine4.Size = new System.Drawing.Size(33, 13);
+            this.lblLine4.Size = new System.Drawing.Size(35, 15);
             this.lblLine4.TabIndex = 19;
             this.lblLine4.Text = "Line4";
+            this.lblLine4.Visible = false;
             // 
             // lblLine5
             // 
             this.lblLine5.AutoSize = true;
+            this.lblLine5.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine5.Location = new System.Drawing.Point(446, 64);
             this.lblLine5.Name = "lblLine5";
-            this.lblLine5.Size = new System.Drawing.Size(33, 13);
+            this.lblLine5.Size = new System.Drawing.Size(35, 15);
             this.lblLine5.TabIndex = 20;
             this.lblLine5.Text = "Line5";
+            this.lblLine5.Visible = false;
             // 
             // lblLine0
             // 
             this.lblLine0.AutoSize = true;
+            this.lblLine0.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine0.Location = new System.Drawing.Point(548, 124);
             this.lblLine0.Name = "lblLine0";
-            this.lblLine0.Size = new System.Drawing.Size(33, 13);
+            this.lblLine0.Size = new System.Drawing.Size(35, 15);
             this.lblLine0.TabIndex = 21;
             this.lblLine0.Text = "Line0";
+            this.lblLine0.Visible = false;
             // 
             // lblLine1
             // 
             this.lblLine1.AutoSize = true;
+            this.lblLine1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine1.Location = new System.Drawing.Point(548, 255);
             this.lblLine1.Name = "lblLine1";
-            this.lblLine1.Size = new System.Drawing.Size(33, 13);
+            this.lblLine1.Size = new System.Drawing.Size(35, 15);
             this.lblLine1.TabIndex = 22;
             this.lblLine1.Text = "Line1";
+            this.lblLine1.Visible = false;
             // 
             // lblLine2
             // 
             this.lblLine2.AutoSize = true;
+            this.lblLine2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine2.Location = new System.Drawing.Point(548, 382);
             this.lblLine2.Name = "lblLine2";
-            this.lblLine2.Size = new System.Drawing.Size(33, 13);
+            this.lblLine2.Size = new System.Drawing.Size(35, 15);
             this.lblLine2.TabIndex = 23;
             this.lblLine2.Text = "Line2";
+            this.lblLine2.Visible = false;
             // 
             // lblLine6
             // 
             this.lblLine6.AutoSize = true;
+            this.lblLine6.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine6.Location = new System.Drawing.Point(12, 21);
             this.lblLine6.Name = "lblLine6";
-            this.lblLine6.Size = new System.Drawing.Size(33, 13);
+            this.lblLine6.Size = new System.Drawing.Size(35, 15);
             this.lblLine6.TabIndex = 24;
             this.lblLine6.Text = "Line6";
+            this.lblLine6.Visible = false;
             // 
             // lblLine7
             // 
             this.lblLine7.AutoSize = true;
+            this.lblLine7.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lblLine7.Location = new System.Drawing.Point(594, 21);
             this.lblLine7.Name = "lblLine7";
-            this.lblLine7.Size = new System.Drawing.Size(33, 13);
+            this.lblLine7.Size = new System.Drawing.Size(35, 15);
             this.lblLine7.TabIndex = 25;
             this.lblLine7.Text = "Line7";
+            this.lblLine7.Visible = false;
             // 
             // btnReset
             // 
