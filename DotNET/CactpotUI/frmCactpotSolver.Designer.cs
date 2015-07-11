@@ -53,6 +53,7 @@
             this.lblLine2 = new System.Windows.Forms.Label();
             this.lblLine6 = new System.Windows.Forms.Label();
             this.lblLine7 = new System.Windows.Forms.Label();
+            this.btnReset = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cboSquare0
@@ -406,12 +407,23 @@
             this.lblLine7.TabIndex = 25;
             this.lblLine7.Text = "Line7";
             // 
+            // btnReset
+            // 
+            this.btnReset.Location = new System.Drawing.Point(578, 505);
+            this.btnReset.Name = "btnReset";
+            this.btnReset.Size = new System.Drawing.Size(75, 23);
+            this.btnReset.TabIndex = 26;
+            this.btnReset.Text = "Reset";
+            this.btnReset.UseVisualStyleBackColor = true;
+            this.btnReset.Click += new System.EventHandler(this.btnReset_Click);
+            // 
             // frmCactpotSolver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(756, 544);
+            this.Controls.Add(this.btnReset);
             this.Controls.Add(this.lblLine7);
             this.Controls.Add(this.lblLine6);
             this.Controls.Add(this.lblLine2);
@@ -473,5 +485,6 @@
         private System.Windows.Forms.Label lblLine2;
         private System.Windows.Forms.Label lblLine6;
         private System.Windows.Forms.Label lblLine7;
+        private System.Windows.Forms.Button btnReset;
     }
 }

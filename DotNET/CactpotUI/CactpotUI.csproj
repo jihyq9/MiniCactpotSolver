@@ -113,10 +113,6 @@
       <Project>{4908d4ca-3fd7-45d2-b184-bf18fed2ed4c}</Project>
       <Name>CactpotSolver</Name>
     </ProjectReference>
-    <ProjectReference Include="..\FsCactpotSolver\FsCactpotSolver.fsproj">
-      <Project>{d2bf0082-afdd-41b2-bc5c-04fa3792af87}</Project>
-      <Name>FsCactpotSolver</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">

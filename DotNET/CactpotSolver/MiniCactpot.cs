@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 public class MiniCactpot
 {
     static void Main(string[] args)
     {
         var testBoard = new MiniCactpot();
-        testBoard.Choose(0, 4);
+        //MiniCactpot.LoadValueStore();
+        //testBoard.Choose(0, 4);
         //Console.WriteLine("Max: " + testBoard.BoardValue);
         for (int i = 0; i < testBoard.CactpotSquares.Length; i++) {
             Console.WriteLine("{0}: {1}", i, testBoard.ChosenSquareValue(i));
         }
-
+        //MiniCactpot.SaveValueStore();
         Console.ReadLine();
     }
 
@@ -37,6 +39,23 @@ public class MiniCactpot
     /// All allowed square values.
     /// </summary>
     private int[] _possibilities = { 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+    #endregion
+
+    #region Constructors
+    public MiniCactpot()
+    {
+        this.CactpotSquares = new int[9];
+        if (ChosenSquareValueStore == null) { 
+            ChosenSquareValueStore = new Dictionary<long, double>();
+            LoadValueStore();
+        }
+    }
+
+    public MiniCactpot(MiniCactpot copiedCactpot)
+        : this()
+    {
+        copiedCactpot.CactpotSquares.CopyTo(this.CactpotSquares, 0);
+    }
     #endregion
 
     #region Properties
@@ -96,20 +115,12 @@ public class MiniCactpot
     }
     #endregion
 
-    #region Constructors
-    public MiniCactpot()
-    {
-        this.CactpotSquares = new int[9];
-        if (ChosenSquareValueStore == null) { ChosenSquareValueStore = new Dictionary<long, double>(); }
-    }
-
-    public MiniCactpot(MiniCactpot copiedCactpot) : this()
-    {
-        copiedCactpot.CactpotSquares.CopyTo(this.CactpotSquares, 0);
-    }
-    #endregion
-
     #region Methods
+    public bool IsUnchosenSquare(int square)
+    {
+        return CactpotSquares[square] == 0;
+    }
+
     public override int GetHashCode()
     {
         int hash = 0;
@@ -187,6 +198,28 @@ public class MiniCactpot
     public int GetCactpotJackpot(int lineTotal)
     {
         return _cactpotValues[lineTotal - 6];
+    }
+
+    public static void SaveValueStore()
+    {
+        using (var outp = new StreamWriter(@"C:\Users\morbious\text.txt")) {
+            int i = 0;
+            foreach (long key in ChosenSquareValueStore.Keys.OrderBy(val => val)) {
+                i = i % 5;
+                outp.Write(String.Format("({0},{1}){2}", key, Math.Round(ChosenSquareValueStore[key], 2), i == 4 ? "\n" : "\t"));
+                i += 1;
+            }
+        }
+    }
+
+    public static void LoadValueStore()
+    {
+        foreach (string elem in CactpotSolver.Properties.Resources.cactpotValues.Split('\t', '\n')) {
+            if (elem.Length > 0) {
+                var pair = elem.Trim('(', ')').Split(',');
+                ChosenSquareValueStore[long.Parse(pair[0])] = double.Parse(pair[1]);
+            }
+        }
     }
     #endregion
 }
